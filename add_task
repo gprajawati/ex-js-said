@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Button</title>
+</head>
+<body>
+    <ul id="dynamic-list"></ul>
+    Total tasks: <span id="number"></span><br><br>
+    <button onClick="inputTask()" id="addTask">Add Task</button>
+
+<script>
+    function inputTask(){
+    let list = document.getElementById("dynamic-list");
+    let addNewTask = prompt ("What is your task?");
+    if (addNewTask===null){
+  	    alert("Please add your task!!!");
+    } else {
+        let newTask = document.createElement("li");
+        list.insertBefore(newTask, list.childNodes[0]);
+ 	      newTask.setAttribute('id',addNewTask);
+        newTask.appendChild(document.createTextNode(addNewTask));
+        let total=document.getElementById("dynamic-list").childElementCount;
+        document.getElementById("number").innerHTML = total;
+        console.log("You have", total , "tasks");
+    }
+} 
+</script>
+
+</body>
+</html>
