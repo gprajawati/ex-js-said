@@ -20,7 +20,7 @@
     } else {
         let newTask = document.createElement("li");
         list.insertBefore(newTask, list.childNodes[0]);
- 	      newTask.setAttribute('id',addNewTask);
+ 	    newTask.setAttribute('id',addNewTask);
         newTask.appendChild(document.createTextNode(addNewTask));
         let total=document.getElementById("dynamic-list").childElementCount;
         document.getElementById("number").innerHTML = total;
