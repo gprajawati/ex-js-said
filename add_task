@@ -8,7 +8,7 @@
 </head>
 <body>
     <ul id="dynamic-list"></ul>
-    Total tasks: <span id="number"></span><br><br>
+    Total tasks: <span id="number">0</span><br><br>
     <button onClick="inputTask()" id="addTask">Add Task</button>
 
 <script>
