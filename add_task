@@ -24,7 +24,7 @@
         let list = document.getElementById("dynamicList");
         let addNewTask = document.getElementById("addTask");
         list.insertBefore(newTask, list.childNodes[0]);
- 	    newTask.setAttribute('id',addNewTask.value);
+        newTask.setAttribute('id',addNewTask.value);
         newTask.appendChild(document.createTextNode(addNewTask.value));
 
         let deleteButton = document.createElement("button");
