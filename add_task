@@ -7,26 +7,46 @@
     <title>Add Button</title>
 </head>
 <body>
-    <ul id="dynamic-list"></ul>
-    Total tasks: <span id="number">0</span><br><br>
-    <button onClick="inputTask()" id="addTask">Add Task</button>
+    <input type="text" id="addTask"/>
+    <button onClick="inputTask()">Add Task</button>
+
+    <ul id="dynamicList">
+    
+    </ul>
+    Total tasks: <span id="number"></span>
 
 <script>
+
+    number.textContent=document.getElementById("dynamicList").childElementCount;
+
     function inputTask(){
-    let list = document.getElementById("dynamic-list");
-    let addNewTask = prompt ("What is your task?");
-    if (addNewTask===null){
-  	    alert("Please add your task!!!");
-    } else {
         let newTask = document.createElement("li");
+        let list = document.getElementById("dynamicList");
+        let addNewTask = document.getElementById("addTask");
         list.insertBefore(newTask, list.childNodes[0]);
-        newTask.setAttribute('id',addNewTask);
-        newTask.appendChild(document.createTextNode(addNewTask));
-        let total=document.getElementById("dynamic-list").childElementCount;
+ 	    newTask.setAttribute('id',addNewTask.value);
+        newTask.appendChild(document.createTextNode(addNewTask.value));
+
+        let deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Done";
+        deleteButton.onclick = removeTask;
+        newTask.appendChild(deleteButton);
+
+
+        let total=document.getElementById("dynamicList").childElementCount;
         document.getElementById("number").innerHTML = total;
-        console.log("You have", total , "tasks");
+
+        let emptyField = document.getElementById("addTask");
+        emptyField.value = "";
+        
+    } 
+
+    function removeTask(){
+        let deleteTask = document.getElementById("dynamicList");
+        deleteTask.removeChild(this.parentNode);
+        let total=document.getElementById("dynamicList").childElementCount;
+        document.getElementById("number").innerHTML = total;
     }
-} 
 </script>
 
 </body>
